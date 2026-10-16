@@ -2,23 +2,25 @@ import { Settings } from "lucide-react";
 
 export function Header() {
   return(
-    <div>  
+    <header className="header">  
       <div>
-        <img src={Settings} alt="Logo" />
-        <h2>Промислова автоматизація</h2>
-        <h3>PLC/CNC</h3>
+        <img className="logo" src={Settings} alt="Logo" />
+        <div className="logo-text">
+          <h2>Промислова автоматизація</h2>
+          <h3>PLC/CNC</h3>
+        </div>
       </div>
-      <div>
+      <nav className="nav">
         <ul>
           <li><a href="#services">Послуги</a></li>
           <li><a href="#about">Наші роботи</a></li>
           <li><a href="#about">Про нас</a></li>
           <li><a href="#contact">Контакти</a></li>
         </ul>
-      </div>
+      </nav>
       <div>
-        <button>Зв'язатися</button>
+        <button className="btn btn-sm">Зв'язатися</button>
       </div>
-    </div>
+    </header>
   )
 }

@@ -11,7 +11,7 @@ export function Projects() {
             <img src={image} alt={title} />
             <h3>{title}</h3>
             <p>{text}</p>
-            <h3>{stack}</h3>
+            <span className="tag">{stack}</span>
           </article>
         ))}
       </div>
