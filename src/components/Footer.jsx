@@ -1,22 +1,36 @@
+import { CONTACTS } from "../data/contacts";
+
 export function Footer() {
+  const { phone, email, telegram, viber, whatsapp, region, coverage } = CONTACTS;
+
   return (
-    <section className="footer-grid">
-      <h3>Контакти</h3>
-      <div>
-        <p>Телефон: +38 (067) 123-45-67</p>
-        <p>Email: info@industrial-automation.com</p>
+    <footer className="footer">
+      <div className="footer-grid">
+        <h2 className="footer-title">Контакти</h2>
+
+        <address className="footer-col">
+          <p>
+            Телефон: <a href={phone.href}>{phone.label}</a>
+          </p>
+          <p>
+            Email: <a href={`mailto:${email}`}>{email}</a>
+          </p>
+        </address>
+
+        <div className="footer-col">
+          <p>{region}</p>
+          <p className="footer-muted">{coverage}</p>
+        </div>
+
+        <div className="footer-col">
+          <p>Промислова автоматизація</p>
+          <p className="footer-muted">PLC / CNC</p>
+        </div>
       </div>
-      <div>
-        <p>Волинська область</p>
-        <p>Працюємо по всій країні</p>
+
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Industrial Automation. Усі права захищено.</p>
       </div>
-      <div>
-        <p>Промислова автоматизація</p>
-        <p>PLC / CNC</p>
-      </div>
-      <footer>
-        <p>© 2024 Industrial Automation. All rights reserved.</p>
-      </footer>
-    </section>
+    </footer>
   );
 }

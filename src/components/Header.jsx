@@ -1,26 +1,36 @@
 import { Settings } from "lucide-react";
 
+const NAV_LINKS = [
+  { href: "#services", label: "Послуги" },
+  { href: "#projects", label: "Наші роботи" },
+  { href: "#about", label: "Про нас" },
+  { href: "#contact", label: "Контакти" },
+];
+
 export function Header() {
-  return(
-    <header className="header">  
-      <div>
-        <img className="logo" src={Settings} alt="Logo" />
-        <div className="logo-text">
-          <h2>Промислова автоматизація</h2>
-          <h3>PLC/CNC</h3>
-        </div>
-      </div>
-      <nav className="nav">
+  return (
+    <header className="header">
+      <a href="#hero" className="logo" aria-label="На початок сторінки">
+        <Settings size={32} aria-hidden="true" />
+        <span className="logo-text">
+          <strong>Промислова автоматизація</strong>
+          <span>PLC/CNC</span>
+        </span>
+      </a>
+
+      <nav className="nav" aria-label="Головна навігація">
         <ul>
-          <li><a href="#services">Послуги</a></li>
-          <li><a href="#about">Наші роботи</a></li>
-          <li><a href="#about">Про нас</a></li>
-          <li><a href="#contact">Контакти</a></li>
+          {NAV_LINKS.map(({ href, label }) => (
+            <li key={href}>
+              <a href={href}>{label}</a>
+            </li>
+          ))}
         </ul>
       </nav>
-      <div>
-        <button className="btn btn-sm">Зв'язатися</button>
-      </div>
+
+      <a href="#contact" className="btn btn-sm">
+        Зв’язатися
+      </a>
     </header>
-  )
+  );
 }
