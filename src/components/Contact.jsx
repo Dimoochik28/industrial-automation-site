@@ -1,3 +1,4 @@
+import { FaTelegram, FaViber, FaWhatsapp } from "react-icons/fa6";
 import { CONTACTS } from "../data/contacts";
 
 export function Contact() {
@@ -13,11 +14,17 @@ export function Contact() {
         <a className="btn" href={phone.href}>Зателефонувати</a>
         <a className="btn btn-outline" href={`mailto:${email}`}>Email</a>
         <a className="btn btn-outline" href={telegram.href}
-           target="_blank" rel="noopener noreferrer">Telegram</a>
+           target="_blank" rel="noopener noreferrer"><FaTelegram size={18} aria-hidden="true" /> Telegram
+          <span className="visually-hidden"> (відкриється в новій вкладці)</span>   
+        </a>
         <a className="btn btn-outline" href={viber.href}
-           target="_blank" rel="noopener noreferrer">Viber</a>
+           target="_blank" rel="noopener noreferrer"><FaViber size={18} aria-hidden="true" /> Viber
+          <span className="visually-hidden"> (відкриється в новій вкладці)</span> 
+       </a>
         <a className="btn btn-outline" href={whatsapp.href}
-           target="_blank" rel="noopener noreferrer">WhatsApp</a>      
+           target="_blank" rel="noopener noreferrer"><FaWhatsapp size={18} aria-hidden="true" /> WhatsApp
+          <span className="visually-hidden"> (відкриється в новій вкладці)</span>
+        </a>      
       </div>
     </section>
   );

@@ -51,6 +51,24 @@ h3{font-size:1rem;font-weight:700;line-height:1.3}
 .btn-outline:hover{background:rgba(59,130,246,.18)}
 .btn-sm{padding:.55rem 1.2rem}
 
+.btn-icon{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+
+.visually-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  margin:-1px;
+  padding:0;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap;
+  border:0;
+}
+
 /* ---------- шапка ---------- */
 .header{
   position:sticky;
@@ -78,11 +96,38 @@ h3{font-size:1rem;font-weight:700;line-height:1.3}
 .logo-text strong{font-size:.85rem;font-weight:700;line-height:1.25}
 .logo-text span{font-size:.75rem;color:#aebbd0}
 
-/* на телефоні меню ховаємо, щоб шапка не росла на 3 рядки */
-.nav{display:none}
-.nav ul{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
-.nav a{font-size:.9rem;font-weight:600;text-decoration:none}
+/* ---------- меню ---------- */
+.menu-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  padding:0;
+  border:1px solid var(--navy-2);
+  border-radius:6px;
+  background:transparent;
+  color:var(--white);
+  cursor:pointer;
+}
+.menu-toggle:hover{background:var(--navy-2)}
+
+/* на телефоні меню розгортається окремим рядком під логотипом */
+.nav{display:none;flex-basis:100%}
+.nav.is-open{display:block}
+.nav ul{display:flex;flex-direction:column}
+.nav a{
+  display:block;
+  padding:.85rem 0;
+  border-top:1px solid var(--navy-2);
+  font-size:.95rem;
+  font-weight:600;
+  text-decoration:none;
+}
 .nav a:hover{color:var(--primary)}
+
+/* кнопка «Зв'язатися» на телефоні є в меню як пункт «Контакти» */
+.header-cta{display:none}
 
 /* ---------- hero ---------- */
 .hero{
@@ -267,7 +312,11 @@ h3{font-size:1rem;font-weight:700;line-height:1.3}
 
 /* ---------- планшет і ПК ---------- */
 @media (min-width:768px){
-  .nav{display:block}
+  .menu-toggle{display:none}
+  .nav,.nav.is-open{display:block;flex-basis:auto}
+  .nav ul{flex-direction:row;flex-wrap:wrap;gap:.5rem 1.5rem}
+  .nav a{display:inline;padding:0;border-top:0;font-size:.9rem}
+  .header-cta{display:inline-block}
   .services-grid,
   .project-grid{grid-template-columns:repeat(3,1fr)}
   .about{grid-template-columns:1fr 1fr}
