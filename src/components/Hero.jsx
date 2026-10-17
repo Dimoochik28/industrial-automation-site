@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section id="hero" className="hero">
       <div className="hero-image">
-        <img src={heroImage} alt="" fetchpriority="high" />
+        <img src={heroImage} alt="" fetchPriority="high" />
       </div>
       <div className="hero-content">
         <h1>Ремонт та модернізація промислового обладнання</h1>
