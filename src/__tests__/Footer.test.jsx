@@ -1,9 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { Footer } from "../components/Footer";
 import { CONTACTS } from "../data/contacts";
+import { renderWithRouter } from "../test/utils";
 
 describe("Footer", () => {
-  beforeEach(() => render(<Footer />));
+  beforeEach(() => {
+    renderWithRouter(<Footer />);
+  });
 
   it("телефон і email клікабельні", () => {
     expect(screen.getByRole("link", { name: CONTACTS.phone.label })).toHaveAttribute("href", CONTACTS.phone.href);
@@ -11,7 +14,7 @@ describe("Footer", () => {
   });
 
   it("показує поточний рік", () => {
-    expect(screen.getByText(new RegExp(String(new Date().getFullYear())))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`©\\s*${new Date().getFullYear()}`))).toBeInTheDocument();
   });
 
   it("не має порожнього id", () => {

@@ -1,28 +1,24 @@
-import { Hero } from './components/Hero.jsx'
-import { Header } from './components/Header.jsx'
-import { Services } from './components/Services.jsx'
-import { Projects } from './components/Projects.jsx'
-import { About } from './components/About.jsx'
-import { Contact } from './components/Contact.jsx'
-import { Footer } from './components/Footer.jsx'
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { ScrollToHash } from "./components/ScrollToHash";
+import { HomePage } from "./pages/HomePage";
+import { PortfolioPage } from "./pages/PortfolioPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
-import './App.css'
-
-
-export function App() {
+export default function App() {
   return (
     <>
+      <ScrollToHash />
       <Header />
       <main>
-        <Hero />
-        <Services />
-        <Projects />
-        <About />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
-      <Contact />
       <Footer />
     </>
   );
 }
-
-export default App

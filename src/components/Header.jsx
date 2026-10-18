@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Settings, Menu, X } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 
 const NAV_LINKS = [
-  { href: "#services", label: "Послуги" },
-  { href: "#projects", label: "Наші роботи" },
-  { href: "#about", label: "Про нас" },
-  { href: "#contact", label: "Контакти" },
+  { to: "/#services", label: "Послуги" },
+  { to: "/portfolio", label: "Наші роботи", page: true },
+  { to: "/#about", label: "Про нас" },
+  { to: "/#contact", label: "Контакти" },
 ];
 
 export function Header() {
@@ -29,13 +30,13 @@ export function Header() {
 
   return (
     <header className="header">
-      <a href="#hero" className="logo" aria-label="На початок сторінки">
+      <Link to="/" className="logo" aria-label="На початок сторінки" arial-label="На початок сторінки">
         <Settings size={32} aria-hidden="true" />
         <span className="logo-text">
           <strong>Промислова автоматизація</strong>
           <span>PLC/CNC</span>
         </span>
-      </a>
+      </Link>
 
       <button
         ref={toggleRef}
@@ -55,19 +56,22 @@ export function Header() {
         aria-label="Головна навігація"
       >
         <ul>
-          {NAV_LINKS.map(({ href, label }) => (
-            <li key={href}>
-              <a href={href} onClick={() => setOpen(false)}>
-                {label}
-              </a>
-            </li>
-          ))}
+          {NAV_LINKS.map(({ to, label, page }) => {
+            const LinkComponent = page ? NavLink : Link;
+            return (
+              <li key={to}>
+                <LinkComponent to={to} onClick={() => setOpen(false)}>
+                  {label}
+                </LinkComponent>
+              </li>
+            );
+          })}
         </ul>
       </nav>
 
-      <a href="#contact" className="btn btn-sm header-cta">
+      <Link to="/#contact" className="btn btn-sm header-cta">
         Зв’язатися
-      </a>
+      </Link>
     </header>
   );
 }

@@ -261,6 +261,14 @@ h3{font-size:1rem;font-weight:700;line-height:1.3}
   font-weight:700;
 }
 
+.page-title{
+  font-size:clamp(1.7rem,3.2vw,2.3rem);
+  font-weight:800;
+  line-height:1.2;
+}
+.projects-more{margin-top:2rem}
+.nav a[aria-current="page"]{color:var(--primary)}
+
 /* ---------- про нас ---------- */
 .about{display:grid;background:var(--navy);color:var(--white)}
 .about>img{

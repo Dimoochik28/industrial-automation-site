@@ -17,10 +17,10 @@ export function Contact() {
            target="_blank" rel="noopener noreferrer"><FaTelegram size={18} aria-hidden="true" /> Telegram
           <span className="visually-hidden"> (відкриється в новій вкладці)</span>   
         </a>
-        <a className="btn btn-outline" href={viber.href}
-           target="_blank" rel="noopener noreferrer"><FaViber size={18} aria-hidden="true" /> Viber
-          <span className="visually-hidden"> (відкриється в новій вкладці)</span> 
-       </a>
+        <a className="btn btn-outline btn-icon" href={viber.href}>
+          <FaViber size={18} aria-hidden="true" />
+          Viber
+        </a>
         <a className="btn btn-outline" href={whatsapp.href}
            target="_blank" rel="noopener noreferrer"><FaWhatsapp size={18} aria-hidden="true" /> WhatsApp
           <span className="visually-hidden"> (відкриється в новій вкладці)</span>
