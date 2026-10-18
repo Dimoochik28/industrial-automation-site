@@ -25,6 +25,33 @@ describe("ProjectList", () => {
     expect(within(first).getByText("PLC")).toBeInTheDocument();
   });
 
+  it("кожна картка має id для переходу за посиланням", () => {
+    const { container } = renderWithRouter(<ProjectList items={items} />);
+    expect(container.querySelector("#a")).toBeInTheDocument();
+    expect(container.querySelector("#b")).toBeInTheDocument();
+  });
+
+  it("показує ключові цифри, примітку й статус, якщо вони є", () => {
+    const withExtras = [
+      { id: "x", title: "Проєкт X", task: "Т", solution: "Р", result: "Рез", stack: "PLC",
+        highlights: ["5 PLC", "4 енкодери"], note: "Муфта енкодера", status: "У роботі" },
+    ];
+    renderWithRouter(<ProjectList items={withExtras} />);
+
+    expect(screen.getByText("5 PLC")).toBeInTheDocument();
+    expect(screen.getByText("4 енкодери")).toBeInTheDocument();
+    expect(screen.getByText(/Муфта енкодера/)).toBeInTheDocument();
+    expect(screen.getByText("У роботі")).toBeInTheDocument();
+  });
+
+  it("проєкт без фото не ламає картку", () => {
+    const noImage = [{ id: "n", title: "Без фото", task: "Т", solution: "Р", result: "Рез", stack: "CNC" }];
+    renderWithRouter(<ProjectList items={noImage} />);
+
+    expect(screen.getByRole("heading", { name: "Без фото" })).toBeInTheDocument();
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  });
+
   it("не падає без пропса items", () => {
     renderWithRouter(<ProjectList />);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);

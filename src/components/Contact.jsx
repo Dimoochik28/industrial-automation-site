@@ -7,8 +7,11 @@ export function Contact() {
   return (
     <section id="contact" className="contact" aria-labelledby="contact-title">
       <span className="section-label">Контакти</span>
-      <h2 id="contact-title">Обговорити модернізацію</h2>
-      <p className="section-sub">Опишіть задачу, і ми запропонуємо рішення.</p>
+      <h2 id="contact-title">Повідомити про несправність</h2>
+      <p className="section-sub">
+        Зателефонуйте або напишіть у месенджер: коротко опишіть, що за обладнання і що
+        сталося. Вартість визначається після оцінки задачі.
+      </p>
 
       <div className="hero-actions">
         <a className="btn" href={phone.href}>Зателефонувати</a>

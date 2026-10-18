@@ -9,10 +9,10 @@ describe("About", () => {
     expect(screen.getByRole("img")).toHaveAccessibleName(/\S/);
   });
 
-  it("показує три факти", () => {
+  it("показує ключові факти про досвід", () => {
     renderWithRouter(<About />);
-    expect(screen.getByText(/понад 3 роки/)).toBeInTheDocument();
-    expect(screen.getByText(/кваліфікація/)).toBeInTheDocument();
-    expect(screen.getByText(/Індивідуальний підхід/)).toBeInTheDocument();
+    expect(screen.getByText(/Понад 40 років/)).toBeInTheDocument();
+    expect(screen.getByText(/Незалежний інженерний бізнес з 2001 року/)).toBeInTheDocument();
+    expect(screen.getByText(/без підтримки виробника/)).toBeInTheDocument();
   });
 });

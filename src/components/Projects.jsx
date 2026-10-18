@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
-import { ProjectList } from "./ProjectList";
+import { ProjectPreview } from "./ProjectPreview";
 
 const PREVIEW_COUNT = 3;
 
@@ -10,7 +10,7 @@ export function Projects() {
       <h2 id="projects-title">Виконані проєкти</h2>
       <p>Реальні приклади впроваджених рішень. Більше проєктів — за запитом.</p>
 
-      <ProjectList items={projects.slice(0, PREVIEW_COUNT)} />
+      <ProjectPreview items={projects.slice(0, PREVIEW_COUNT)} />
 
       <Link to="/portfolio" className="btn projects-more">
         Усі роботи

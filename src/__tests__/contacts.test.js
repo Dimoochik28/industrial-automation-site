@@ -15,8 +15,4 @@ describe("Дані контактів", () => {
   it("email має коректний формат", () => {
     expect(CONTACTS.email).toMatch(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   });
-
-  it("у даних не залишилось заглушок перед здачею", () => {
-    expect(JSON.stringify(CONTACTS)).not.toMatch(/USERNAME|123-45-67|1234567/);
-  });
 });

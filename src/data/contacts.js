@@ -5,5 +5,5 @@ export const CONTACTS = {
   viber: { label: "Viber", href: "viber://chat?number=%2B380668152153" },
   whatsapp: { label: "WhatsApp", href: "https://wa.me/380668152153" },
   region: "Волинська область",
-  coverage: "Працюємо по всій країні",
+  coverage: "Виїзди по Україні за домовленістю",
 };
