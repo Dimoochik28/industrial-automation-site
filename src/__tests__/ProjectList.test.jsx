@@ -31,16 +31,15 @@ describe("ProjectList", () => {
     expect(container.querySelector("#b")).toBeInTheDocument();
   });
 
-  it("показує ключові цифри, примітку й статус, якщо вони є", () => {
+  it("показує ключові цифри й статус, якщо вони є", () => {
     const withExtras = [
       { id: "x", title: "Проєкт X", task: "Т", solution: "Р", result: "Рез", stack: "PLC",
-        highlights: ["5 PLC", "4 енкодери"], note: "Муфта енкодера", status: "У роботі" },
+        highlights: ["5 PLC", "4 енкодери"], status: "У роботі" },
     ];
     renderWithRouter(<ProjectList items={withExtras} />);
 
     expect(screen.getByText("5 PLC")).toBeInTheDocument();
     expect(screen.getByText("4 енкодери")).toBeInTheDocument();
-    expect(screen.getByText(/Муфта енкодера/)).toBeInTheDocument();
     expect(screen.getByText("У роботі")).toBeInTheDocument();
   });
 
