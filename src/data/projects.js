@@ -145,7 +145,7 @@ export const projects = [
   {
     id: "furniture-universal-machine",
     image: "/projects/stolesnicia-poster.jpg",
-    video: { src: "/public/videos/stolesnicia.mp4" },
+    video: { src: "/videos/stolesnicia.mp4" },
     title: "Запуск універсального меблевого верстата, що простояв з 2014 року",
     summary:
       "Верстат-універсал меблевої фірми простояв з 2014 року. Пусконалагодження: розкрій, свердління, фрезерування, обклеювання контурів.",
