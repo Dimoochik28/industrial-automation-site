@@ -11,7 +11,7 @@ export const projects = [
   {
     id: "edgebander-line",
     image: kromka,
-    video: {src: "/public/videos/kromkavideo.mp4", type: "video/mp4"},
+    video: {src: "/videos/kromkavideo.mp4", type: "video/mp4"},
     title: "Модернізація двосторонньої крайколичкувальної лінії",
     task: "Замінити стару систему керування так, щоб нова була відносно недорогою, зрозумілою в обслуговуванні та придатною до подальшої діагностики й ремонту.",
     solution:
@@ -124,7 +124,7 @@ export const projects = [
   {
     id: "dairy-cip-washing",
     image: cip_washing,
-    video: {src: "/public/videos/promiv.mp4", type: "video/mp4"},
+    video: {src: "/videos/promiv.mp4", type: "video/mp4"},
     title: "Система керування мийкою трубопроводів і резервуарів на молокопереробному підприємстві",
     summary:
       "Розробка й упровадження системи керування мийкою трубопроводів, резервуарів і обладнання з мнемосхемою та автоматичним режимом.",
