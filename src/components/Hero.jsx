@@ -8,7 +8,8 @@ export function Hero() {
         <img src={heroImage} alt="" fetchPriority="high" />
       </div>
       <div className="hero-content">
-        <h1>Ремонт і модернізація промислового обладнання</h1>
+        <h1>Автоматиція вашого бізнесу</h1>
+        <p className="hero-tags">Ремонт і модернізація промислового обладнання</p>
         <p className="hero-tags">
           PLC • CNC • HMI • Електроприводи • Промислова електроніка
         </p>

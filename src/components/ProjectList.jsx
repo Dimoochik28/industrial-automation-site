@@ -1,10 +1,16 @@
+import { VideoPlayer } from "./VideoPlayer";
+
 export function ProjectList({ items = [] }) {
   return (
     <ul className="project-grid">
       {items.map(
-        ({ id, image, title, task, solution, result, stack, status, highlights }) => (
+        ({ id, image, title, task, solution, result, stack, status, highlights, video }) => (
           <li key={id ?? title} id={id} className="card">
-            {image && <img src={image} alt={title} loading="lazy" />}
+            {video ? (
+              <VideoPlayer title={title} poster={image} video={video} />
+            ) : (
+              image && <img src={image} alt={title} loading="lazy" />
+            )}
             <h3>{title}</h3>
 
             {highlights?.length > 0 && (

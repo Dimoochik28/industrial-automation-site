@@ -55,4 +55,19 @@ describe("ProjectList", () => {
     renderWithRouter(<ProjectList />);
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
+  
+  it("для проєкту з відео показує кнопку відтворення", () => {
+    const withVideo = [
+      { id: "v", title: "Проєкт V", image: "/v.png", task: "Т", solution: "Р", result: "Рез",
+        stack: "CNC", video: { src: "/videos/v.mp4" } },
+    ];
+    renderWithRouter(<ProjectList items={withVideo} />);
+
+    expect(screen.getByRole("button", { name: "Дивитися відео: Проєкт V" })).toBeInTheDocument();
+  });
+
+  it("проєкт без відео не має кнопки відтворення", () => {
+    renderWithRouter(<ProjectList items={items} />);
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
 });

@@ -29,4 +29,16 @@ describe("Дані проєктів", () => {
     const titles = projects.map((p) => p.title);
     expect(new Set(titles).size).toBe(titles.length);
   });
+
+  it("відео має src або youtubeId (одне з двох) і коректний формат", () => {
+    projects
+      .filter((p) => p.video)
+      .forEach(({ title, video }) => {
+        const { src, youtubeId } = video;
+
+        expect(Boolean(src) !== Boolean(youtubeId), `«${title}»: потрібен рівно один із src або youtubeId`).toBe(true);
+        if (src) expect(src, `«${title}»`).toMatch(/^\/videos\/.+\.(mp4|webm)$/);
+        if (youtubeId) expect(youtubeId, `«${title}»`).toMatch(/^[\w-]{11}$/);
+      });
+  });
 });
