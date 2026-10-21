@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { Play } from "lucide-react";
 
-export function VideoPlayer({ title, poster, video }) {
-  const [playing, setPlaying] = useState(false);
+
+export function VideoPlayer({ title, poster, video, playing, onPlay }) {
   const { src, youtubeId } = video;
-  const thumb =
-    poster ?? (youtubeId ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg` : undefined);
 
   if (playing) {
     return (
@@ -28,10 +25,10 @@ export function VideoPlayer({ title, poster, video }) {
     <button
       type="button"
       className="media video-poster"
-      onClick={() => setPlaying(true)}
+      onClick={ onPlay}
       aria-label={`Дивитися відео: ${title}`}
     >
-      {thumb && <img src={thumb} alt="" loading="lazy" />}
+      {poster && <img src={poster} alt="" loading="lazy" />}
       <span className="play-badge" aria-hidden="true">
         <Play size={28} fill="currentColor" />
       </span>

@@ -5,6 +5,7 @@ import frazer from "../assets/projects/frazer.png";
 import pusko_naladka from "../assets/projects/pusko_naladka.png";
 import mebli from "../assets/projects/mebli.png";
 import cip_washing from "../assets/projects/cip_washing.png";
+import meble_verstate from "../assets/projects/meble_verstate.png";
 
  
 export const projects = [
@@ -144,7 +145,7 @@ export const projects = [
   },
   {
     id: "furniture-universal-machine",
-    image: "/projects/stolesnicia-poster.jpg",
+    image: meble_verstate,
     video: { src: "/videos/stolesnicia.mp4" },
     title: "Запуск універсального меблевого верстата, що простояв з 2014 року",
     summary:

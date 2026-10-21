@@ -1,13 +1,19 @@
+import { useState } from "react";
 import { VideoPlayer } from "./VideoPlayer";
 
 export function ProjectList({ items = [] }) {
+  const [activeVideoId, setActiveVideoId] = useState(null);
+  
   return (
     <ul className="project-grid">
       {items.map(
-        ({ id, image, title, task, solution, result, stack, status, highlights, video }) => (
-          <li key={id ?? title} id={id} className="card">
+        ({ id, image, title, task, solution, result, stack, status, highlights, video }) => {
+
+        const cardId = id ?? title;
+        return (
+          <li key={cardId} id={id} className="card">
             {video ? (
-              <VideoPlayer title={title} poster={image} video={video} />
+              <VideoPlayer title={title} poster={image} video={video} playing={activeVideoId === cardId} onPlay={() => setActiveVideoId(cardId)} />
             ) : (
               image && <img src={image} alt={title} loading="lazy" />
             )}
@@ -32,7 +38,9 @@ export function ProjectList({ items = [] }) {
               {status && <span className="tag tag-status">{status}</span>}
             </div>
           </li>
-        )
+        
+      );
+    }
       )}
     </ul>
   );
